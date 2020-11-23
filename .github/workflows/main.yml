@@ -26,11 +26,11 @@ jobs:
            # 3. change your email
           git config --global user.email jkaae93@gmail.com
           # 4. change your name
-          git config --global user.name Serim Jeon
+          git config --global user.name Serim
           git status
           # 5. change your repository
           git remote add origin https://github.com/jkaae93/page_dev.git
-          git checkout -b dev
+          git checkout -b master
           git add --all
           git commit -m "update"
-          git push origin dev -f
+          git push origin master -f
