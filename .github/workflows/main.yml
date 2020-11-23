@@ -22,7 +22,7 @@ jobs:
           cd ./build/web
           git init
           git config --global user.email jkaae93@gmail.com
-          git config --global user.name Serim
+          git config --global user.name Serim Jeon
           git status
           git remote add origin https://$@github.com/jkaae93/page_dev.git
           git checkout -b release
