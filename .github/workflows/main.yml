@@ -17,18 +17,13 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
-        # 1. change path which exist lib/main.dart
         working-directory: ./
       - run: |
-          # 2. change path to [existed lib/main.dart path]/build/web
           cd ./build/web
           git init
-           # 3. change your email
           git config --global user.email jkaae93@gmail.com
-          # 4. change your name
           git config --global user.name Serim
           git status
-          # 5. change your repository
           git remote add origin https://github.com/jkaae93/page_dev.git
           git checkout -b master
           git add --all
