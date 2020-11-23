@@ -25,7 +25,7 @@ jobs:
           git config --global user.name Serim
           git status
           git remote add origin https://github.com/jkaae93/page_dev.git
-          git checkout -b master
+          git checkout -b release
           git add --all
           git commit -m "update"
-          git push origin master -f
+          git push origin release -f
