@@ -30,7 +30,7 @@ jobs:
           git status
           # 5. change your repository
           git remote add origin https://github.com/jkaae93/page_dev.git
-          git checkout -b gh-pages
+          git checkout -b dev
           git add --all
           git commit -m "update"
-          git push origin page_dev -f
+          git push origin dev -f
