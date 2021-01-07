@@ -76,8 +76,10 @@ class Title extends StatelessWidget {
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
-                                    child:
-                                        Image.network("assets/component1.svg"),
+                                    child: Image.network(
+                                        "./assets/images/component1.svg"),
+                                    // child: SvgPicture.asset(
+                                    //     "assets/images/component2.svg"),
                                   ),
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
@@ -105,8 +107,8 @@ class Title extends StatelessWidget {
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
-                                    child:
-                                        Image.network("assets/component2.svg"),
+                                    child: Image.network(
+                                        "./assets/images/component2.svg"),
                                   ),
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
@@ -134,8 +136,8 @@ class Title extends StatelessWidget {
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
-                                    child:
-                                        Image.network("assets/component3.svg"),
+                                    child: Image.network(
+                                        "./assets/images/component3.svg"),
                                   ),
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
@@ -180,7 +182,7 @@ class Title extends StatelessWidget {
               ],
             ),
             "Hello, I'm Serim",
-            "assets/profile.png",
+            "./assets/images/profile.png",
             "안녕하세요. 전세림입니다."));
   }
 }
