@@ -77,7 +77,7 @@ class Title extends StatelessWidget {
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
                                     child: Image.network(
-                                        "./assets/assets/images/component1.svg"),
+                                        "./assets/images/component1.svg"),
                                     // child: SvgPicture.asset(
                                     //     "assets/images/component2.svg"),
                                   ),
@@ -108,7 +108,7 @@ class Title extends StatelessWidget {
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
                                     child: Image.network(
-                                        "./assets/assets/images/component2.svg"),
+                                        "./assets/images/component2.svg"),
                                   ),
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
@@ -137,7 +137,7 @@ class Title extends StatelessWidget {
                                     height: (UtilConst.width * 0.2) * 1.88,
                                     width: UtilConst.width * 0.2,
                                     child: Image.network(
-                                        "./assets/assets/images/component3.svg"),
+                                        "./assets/images/component3.svg"),
                                   ),
                                   Container(
                                     height: (UtilConst.width * 0.2) * 1.88,
@@ -182,7 +182,7 @@ class Title extends StatelessWidget {
               ],
             ),
             "Hello, I'm Serim",
-            "./assets/assets/images/profile.png",
+            "./images/profile.png",
             "안녕하세요. 전세림입니다."));
   }
 }
