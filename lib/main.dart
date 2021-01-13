@@ -182,7 +182,7 @@ class Title extends StatelessWidget {
               ],
             ),
             "Hello, I'm Serim",
-            "images/profile.png",
+            "/assets/images/profile.png",
             "안녕하세요. 전세림입니다."));
   }
 }
