@@ -8,7 +8,7 @@ git commit -m $1
 # git add .
 # git commit -am $1
 # cd ../page_dev/
-echo "Fnished copy process"
+# echo "Fnished copy process"
 
 if [ $2=1 ]
 then 
