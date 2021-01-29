@@ -42,7 +42,7 @@ jobs:
           git status
           git remote rm origin
           git remote add origin https://github.com/jkaae93/jkaae93.github.io.git
-          git checkout -b master
+          git checkout master
           git add .
           git commit -am "update"
       - name: release
