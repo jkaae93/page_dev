@@ -31,6 +31,7 @@ jobs:
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh -T git@github.com
       - run: |
           ls -al
           cd ./build/web
@@ -39,7 +40,7 @@ jobs:
         run: | 
           git status
           git remote rm origin
-          git remote add origin https://github.com/jkaae93/jkaae93.github.io.git
+          git remote add origin git@github.com:jkaae93/jkaae93.github.io.git
           git checkout -b master
           git add .
           git commit -am "update"
