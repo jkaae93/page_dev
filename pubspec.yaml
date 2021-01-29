@@ -49,6 +49,23 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - ./assets/
+    - ./assets/images/component1.png
+    - ./assets/images/component2.png
+    - ./assets/images/component3.png
+    - ./assets/images/profile.png
+    - ./assets/images/smart_home.png
+    - ./assets/icons/bubble.svg
+    - ./assets/icons/logos_android.svg
+    - ./assets/icons/logos_c-plusplus.svg
+    - ./assets/icons/logos_c.svg
+    - ./assets/icons/logos_facebook.svg
+    - ./assets/icons/logos_flutter.svg
+    - ./assets/icons/logos_instagram.svg
+    - ./assets/icons/logos_java.svg
+    - ./assets/icons/logos_js.svg
+    - ./assets/icons/logos_kotlin.svg
+    - ./assets/icons/logos_twitter.svg
+    - ./assets/icons/mdi_marker-check.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
