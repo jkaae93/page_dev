@@ -37,7 +37,7 @@ jobs:
           git remote add origin git@github.com:jkaae93/jkaae93.github.io.git
           git checkout -b master
           git add .
-          git commit -m "update"
+          git commit -am "update"
       - name: release
         run: |
           git push origin master -f
