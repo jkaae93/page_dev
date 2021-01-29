@@ -1,8 +1,8 @@
+import 'package:docs/company_page.dart';
 import 'package:docs/main_page.dart';
-import 'package:docs/template.dart';
+import 'package:docs/personal_page.dart';
+import 'package:docs/univ_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'util_const.dart';
 
@@ -16,7 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'UbuntuMono'),
-      home: Home(),
+      routes: {
+        '/': (context) => MainPage(),
+        '/univ': (context) => UnivPage(),
+        '/comp': (context) => CompanyPage(),
+        '/pers': (context) => PersonalPage(),
+      },
     );
   }
 }

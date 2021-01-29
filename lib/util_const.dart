@@ -17,6 +17,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class UtilConst {
+  // Settings
+  static bool enableLog = true;
+
   // size
   static double height = 0.0;
   static double width = 0.0;
@@ -26,8 +29,27 @@ class UtilConst {
   final Color pColor = Color.fromARGB(0xff, 0x3f, 0x59, 0x8c);
   final Color tpColor = Color.fromARGB(0xff, 0x29, 0x43, 0x77);
 
+  //assets
+  String icons(String file) {
+    return "./icons/" + file;
+  }
+
+  String images(String file) {
+    return "./images/" + file;
+  }
+
+  String font(String file) {
+    return "./fonts/" + file;
+  }
+
   void init(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
+  }
+
+  void log(String message) {
+    if (enableLog) {
+      print(message);
+    }
   }
 }

@@ -1,4 +1,6 @@
+import 'package:docs/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'util_const.dart';
@@ -11,100 +13,140 @@ class Template extends StatelessWidget {
   Template(this._body, this._title, this._titleImage, this._subTitle);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            child: Stack(
-              children: [
-                Container(
-                  child: CustomPaint(
-                    size: new Size(UtilConst.width, UtilConst.height * 0.6),
-                    painter: HeadDraw(),
-                  ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+    return WillPopScope(
+      onWillPop: () async => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => new MainPage())),
+      child: Scaffold(
+        backgroundColor: UtilConst().bgColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: Stack(
                   children: [
                     Container(
-                      height: UtilConst.height * 0.5,
-                      child: Image(image: AssetImage(this._titleImage)),
+                      child: CustomPaint(
+                        size: new Size(UtilConst.width, UtilConst.height * 0.6),
+                        painter: HeadDraw(),
+                      ),
                     ),
-                    Container(
-                      height: UtilConst.height * 0.5,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Stack(
                           children: [
                             Container(
-                              child: Text(
-                                this._title,
-                                style: TextStyle(
-                                    color: UtilConst().bgColor,
-                                    fontSize: UtilConst.height * 0.03),
-                                textAlign: TextAlign.left,
-                              ),
+                              height: UtilConst.height * 0.5,
+                              width: UtilConst.width * 0.25,
+                              child: imageLoader(this._titleImage),
                             ),
-                            _subTitle.length > 0
-                                ? Container(
-                                    child: RotationTransition(
-                                        turns:
-                                            AlwaysStoppedAnimation(180 / 360),
-                                        child: Text(
-                                          this._subTitle,
-                                          style: TextStyle(
-                                              color: UtilConst().tpColor,
-                                              fontSize:
-                                                  UtilConst.height * 0.03),
-                                          textAlign: TextAlign.right,
-                                        )),
-                                  )
-                                : Container(),
-                          ]),
+                            Container(
+                              height: UtilConst.height * 0.5,
+                              width: UtilConst.width * 0.25,
+                              decoration: BoxDecoration(
+                                  color:
+                                      Color.fromARGB(0x73, 0x00, 0x00, 0x00)),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          height: UtilConst.height * 0.5,
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  child: Text(
+                                    this._title,
+                                    style: TextStyle(
+                                        color: UtilConst().bgColor,
+                                        fontSize: UtilConst.height * 0.03),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                _subTitle.length > 0
+                                    ? Container(
+                                        child: RotationTransition(
+                                            turns: AlwaysStoppedAnimation(
+                                                180 / 360),
+                                            child: Text(
+                                              this._subTitle,
+                                              style: TextStyle(
+                                                  color: UtilConst().tpColor,
+                                                  fontSize:
+                                                      UtilConst.height * 0.03),
+                                              textAlign: TextAlign.right,
+                                            )),
+                                      )
+                                    : Container(),
+                              ]),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      child: CustomPaint(
+                        size: new Size(UtilConst.width, UtilConst.height * 0.6),
+                        painter: HeadCoverDraw(),
+                      ),
                     ),
                   ],
                 ),
-                Container(
-                  child: CustomPaint(
-                    size: new Size(UtilConst.width, UtilConst.height * 0.6),
-                    painter: HeadCoverDraw(),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          this._body,
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              CustomPaint(
-                size: new Size(UtilConst.width, UtilConst.height * 0.2),
-                painter: BottomDraw(),
               ),
-              Align(
+              this._body,
+              Stack(
                 alignment: Alignment.center,
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Powered by Flutter ",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Container(
-                        height: UtilConst.height * 0.02,
-                        child: Image.network("assets/icons/logos_flutter.svg"),
-                      )
-                    ],
+                children: [
+                  CustomPaint(
+                    size: new Size(UtilConst.width, UtilConst.height * 0.2),
+                    painter: BottomDraw(),
                   ),
-                ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Powered by Flutter ",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Container(
+                            height: UtilConst.height * 0.02,
+                            child: SvgPicture.asset(
+                                UtilConst().icons("logos_flutter.svg")),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
+  }
+
+  bool svgChecker(String path) {
+    List<String> splitList = path.split(".");
+    for (String n in splitList) {
+      UtilConst().log(n);
+      if (n == "svg") {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Widget imageLoader(String path) {
+    if (svgChecker(path)) {
+      return SvgPicture.asset(path);
+    } else {
+      UtilConst().log("not svg $path");
+      return Image.asset(path);
+    }
   }
 }
 
@@ -164,8 +206,8 @@ class MenuTitle extends StatelessWidget {
         children: [
           Container(
             height: UtilConst.height * 0.03,
-            child: Image.network(
-              "assets/icons/mdi_marker-check.svg",
+            child: SvgPicture.asset(
+              UtilConst().icons("mdi_marker-check.svg"),
             ),
           ),
           Text(
@@ -209,25 +251,33 @@ class SocialButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FlatButton(
-          key: null,
-          onPressed: () {
-            launch("https://www.instagram.com/jkaae93/");
-          },
-          child: Image.network("assets/icons/logos_instagram.svg"),
-        ),
-        FlatButton(
+        GestureDetector(
             key: null,
-            onPressed: () {
+            onTap: () {
+              launch("https://www.instagram.com/jkaae93/");
+            },
+            child: Container(
+                width: UtilConst.width * 0.05,
+                child: SvgPicture.asset(
+                    UtilConst().icons("logos_instagram.svg")))),
+        GestureDetector(
+            key: null,
+            onTap: () {
               launch("https://www.facebook.com/jkaae93/");
             },
-            child: Image.network("assets/icons/logos_facebook.svg")),
-        FlatButton(
+            child: Container(
+                width: UtilConst.width * 0.05,
+                child:
+                    SvgPicture.asset(UtilConst().icons("logos_facebook.svg")))),
+        GestureDetector(
             key: null,
-            onPressed: () {
+            onTap: () {
               launch("https://www.twitter.com/jkaae93/");
             },
-            child: Image.network("assets/icons/logos_twitter.svg")),
+            child: Container(
+                width: UtilConst.width * 0.05,
+                child:
+                    SvgPicture.asset(UtilConst().icons("logos_twitter.svg")))),
       ],
     );
   }
@@ -257,7 +307,7 @@ class BottomDraw extends CustomPainter {
 class LangIcon extends StatefulWidget {
   bool levelBubble = false;
   String title = "title";
-  Image image;
+  Widget image;
   String level = "Lower";
 
   LangIcon(this.title, this.image, this.level);
@@ -270,7 +320,7 @@ class LangIcon extends StatefulWidget {
 class _LangIcon extends State<LangIcon> {
   bool levelBubble = false;
   String title = "title";
-  Image image;
+  Widget image;
   String level = "Lower";
 
   _LangIcon(this.title, this.image, this.level);
@@ -295,11 +345,14 @@ class _LangIcon extends State<LangIcon> {
             Container(
                 height: (UtilConst.height * 0.05),
                 child: (this.image == null
-                    ? "./assets/icons/icon_language.svg"
+                    ? UtilConst().icons("icon_language.svg")
                     : this.image)),
             Container(
-                child: Text(this.title,
-                    style: TextStyle(fontSize: UtilConst.height * 0.01))),
+              width: UtilConst.width * 0.08,
+              alignment: Alignment.center,
+              child: Text(this.title,
+                  style: TextStyle(fontSize: UtilConst.height * 0.01)),
+            ),
             Container(
                 height: (UtilConst.height * 0.05),
                 child: Visibility(
@@ -308,8 +361,8 @@ class _LangIcon extends State<LangIcon> {
                     children: [
                       Align(
                         alignment: Alignment.center,
-                        child: Image.network(
-                          "./assets/icons/bubble.svg",
+                        child: SvgPicture.asset(
+                          UtilConst().icons("bubble.svg"),
                         ),
                       ),
                       Align(
@@ -326,16 +379,16 @@ class _LangIcon extends State<LangIcon> {
                 ))
           ])),
       onHover: (isHovering) {
-        print("$title onHover in :$isHovering");
+        UtilConst().log("$title onHover in :$isHovering");
         if (isHovering) {
           this.setState(() {
             levelBubble = true;
-            print("isHovering is true");
+            UtilConst().log("isHovering is true");
           });
         } else {
           this.setState(() {
             levelBubble = false;
-            print("isHovering is false");
+            UtilConst().log("isHovering is false");
           });
         }
       },
@@ -347,7 +400,7 @@ class _LangIcon extends State<LangIcon> {
 class CategoryBlock extends StatefulWidget {
   CategoryBlock(this.title, this.bg, this.cb);
   String title;
-  Image bg;
+  Widget bg;
   Function cb;
 
   @override
@@ -359,7 +412,7 @@ class _CategoryBlock extends State<CategoryBlock> {
   _CategoryBlock(this.title, this.bg, this.cb);
   String title = "";
   bool hoverState = false;
-  Image bg;
+  Widget bg;
   Function cb;
 
   @override
@@ -371,7 +424,7 @@ class _CategoryBlock extends State<CategoryBlock> {
         });
       },
       onTap: () {
-        print("$title, tapped");
+        UtilConst().log("$title, tapped");
         this.cb();
       },
       child: Stack(
@@ -381,7 +434,7 @@ class _CategoryBlock extends State<CategoryBlock> {
             width: UtilConst.width * 0.2,
             child: this.bg != null
                 ? this.bg
-                : Image.network("./assets/images/component1.svg"),
+                : SvgPicture.asset(UtilConst().images("component1.svg")),
           ),
           Container(
             height: (UtilConst.width * 0.2) * 1.88,
@@ -411,5 +464,40 @@ class _CategoryBlock extends State<CategoryBlock> {
   @override
   void dispose() {
     super.dispose();
+  }
+}
+
+class ProjectBanner extends StatefulWidget {
+  String title;
+  Image bg;
+  ProjectBanner(this.title, this.bg);
+  @override
+  State<StatefulWidget> createState() =>
+      _ProjectBannerState(this.title, this.bg);
+}
+
+class _ProjectBannerState extends State<ProjectBanner> {
+  String title;
+  Image bg;
+  _ProjectBannerState(this.title, this.bg);
+  @override
+  Widget build(BuildContext context) {
+    UtilConst().log("build $title");
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+              width: UtilConst.width * 0.8,
+              child: bg,
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(0xff, 0x00, 0x00, 0x00))),
+          Positioned(
+            right: UtilConst.width * 0.052,
+            bottom: 0,
+            child: Text(this.title),
+          ),
+        ],
+      ),
+    );
   }
 }
