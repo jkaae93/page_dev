@@ -38,14 +38,14 @@ class UtilConst {
   }
 
   String images(String file) {
-    String releasePath = "./assets/";
+    String releasePath = "./assets";
     String path = "/images/" + file;
     if (!enableLog) path = releasePath + path;
     return path;
   }
 
   String font(String file) {
-    String releasePath = "./assets/";
+    String releasePath = "./assets";
     String path = "/fonts/" + file;
     if (!enableLog) path = releasePath + path;
     return path;

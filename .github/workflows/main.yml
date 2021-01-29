@@ -27,6 +27,6 @@ jobs:
           git status
           git remote add origin https://jkaae93:jl8085++@github.com/jkaae93/jkaae93.github.io.git
           git checkout -b master
-          git add --all
+          git add .
           git commit -m "update"
           git push origin master -f
