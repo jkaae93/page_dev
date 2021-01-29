@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }} 
+          ssh-key: ${{ secrets.ACTION_DEPLOY_KEY }}
       - uses: subosito/flutter-action@v1
         with:
           channel: 'dev'
