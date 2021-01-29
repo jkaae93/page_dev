@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: $
+      my_secret: ${{ secrets.ACTION_DEPLOY_KEY }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
