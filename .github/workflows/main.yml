@@ -18,9 +18,10 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./
-      - env: 
+      - name: a
+        env: 
           ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-      - run: |
+        run: |
           mkdir -p ~/.ssh/
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
