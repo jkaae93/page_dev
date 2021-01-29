@@ -18,8 +18,7 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./
-      - name: install deploy keys
-        env:
+      - env: 
           ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
       - run: |
           mkdir -p ~/.ssh/
