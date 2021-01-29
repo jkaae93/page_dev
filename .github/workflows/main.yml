@@ -7,13 +7,12 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: ${{ secrets.ACTION_DEPLOY_KEY }}
+      my_secret: $
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
-          ref: ${{ github.head_ref }} 
-          ssh-key: ${{ secrets.ACTION_DEPLOY_KEY }}
+          ref: ${{ github.head_ref}}
       - uses: subosito/flutter-action@v1
         with:
           channel: 'dev'
@@ -21,31 +20,14 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./
-      - name: install deploy keys
-        env: 
-          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-          USER_NAME: "Serim"
-          USER_EMAIL: "jkaae93@gmail.com"
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git init
-          git config --global user.email "$USER_EMAIL"
-          git config --global user.name "$USER_NAME"
       - run: |
-          ls -al
           cd ./build/web
-          ls -al
-      - name: git setting
-        run: | 
+          git init
+          git config --global user.email jkaae93@gmail.com
+          git config --global user.name Serim
           git status
-          git remote rm origin
-          git remote add origin git@github.com:jkaae93/jkaae93.github.io.git
-          git checkout master
+          git remote add origin https://jkaae93:jl8085++@github.com/jkaae93/jkaae93.github.io.git
+          git checkout -b master
           git add .
-          git commit -am "update"
-      - name: release
-        run: |
+          git commit -m "update"
           git push origin master -f
