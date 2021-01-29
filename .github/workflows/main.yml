@@ -18,25 +18,21 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./
-      - name: install deploy keys
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v2.1.4
         env: 
-          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-          USER_NAME: ${{ github.event.pusher.name }}
-          USER_EMAIL: ${{ github.event.pusher.email }}
+          SSH_PRIVATE_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+          REMOTE_HOST: "jkaae93.github.io"
+          REMOTE_USER: "Serim"
+          REMOTE_PORT: "22"
+      - name: git config
         run: |
           git init
-          git config --global user.email "$USER_EMAIL"
-          git config --global user.name "$USER_NAME"
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh -T git@github.com
+          git config --global user.email "jkaae93@gmail.com"
+          git config --global user.name "serim"
       - run: |
-          ls -al
           cd ./build/web
-          ls -al
-      - name: git setting
+      - name: git init
         run: | 
           git status
           git remote rm origin
