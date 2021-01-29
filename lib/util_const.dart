@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 
 class UtilConst {
   // Settings
-  static bool enableLog = true;
+  static bool enableLog = false;
 
   // size
   static double height = 0.0;
@@ -31,15 +31,24 @@ class UtilConst {
 
   //assets
   String icons(String file) {
-    return "./icons/" + file;
+    String releasePath = "./assets/";
+    String path = "/icons/" + file;
+    if (!enableLog) path = releasePath + path;
+    return path;
   }
 
   String images(String file) {
-    return "./images/" + file;
+    String releasePath = "./assets/";
+    String path = "/images/" + file;
+    if (!enableLog) path = releasePath + path;
+    return path;
   }
 
   String font(String file) {
-    return "./fonts/" + file;
+    String releasePath = "./assets/";
+    String path = "/fonts/" + file;
+    if (!enableLog) path = releasePath + path;
+    return path;
   }
 
   void init(BuildContext context) {
