@@ -31,7 +31,7 @@ class UtilConst {
 
   //assets
   String icons(String file) {
-    String releasePath = "./assets/";
+    String releasePath = "./assets";
     String path = "/icons/" + file;
     if (!enableLog) path = releasePath + path;
     return path;
