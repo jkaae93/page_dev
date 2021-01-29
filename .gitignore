@@ -2,7 +2,6 @@
 .metadata
 .DS_Store
 .dart_tool/
-.packages
 build
 android
 ios
