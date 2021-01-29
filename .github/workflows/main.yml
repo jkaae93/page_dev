@@ -27,6 +27,7 @@ jobs:
           USER_NAME: "Serim"
           USER_EMAIL: "jkaae93@gmail.com"
         run: |
+          echo "$ACTION_DEPLOY_KEY"
           mkdir -p ~/.ssh/
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
