@@ -34,7 +34,7 @@ jobs:
           git config --global user.email jkaae93@gmail.com
           git config --global user.name Serim
           git status
-          git remote add origin https://jkaae93.github.io.git
+          git remote add origin git@github.com:jkaae93/jkaae93.github.io.git
           git checkout -b master
           git add .
           git commit -m "update"
