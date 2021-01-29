@@ -21,17 +21,19 @@ jobs:
       - name: install deploy keys
         env: 
           ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+          USER_NAME: ${{ github.event.pusher.name }}
+          USER_EMAIL: ${{ github.event.pusher.email }}
         run: |
           git init
-          git config --global user.email jkaae93@gmail.com
-          git config --global user.name Serim
+          git config --global user.email "$USER_EMAIL"
+          git config --global user.name "$USER_NAME"
           mkdir -p ~/.ssh/
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: |
           ls -al
-          cd ../build/web
+          cd ./build/web
           ls -al
       - name: git setting
         run: | 
