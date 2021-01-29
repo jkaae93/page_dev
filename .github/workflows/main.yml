@@ -18,13 +18,21 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./
+      - name: install deploy keys
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+      - run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keygen github.com >> ~/.ssh/known_hosts
       - run: |
           cd ./build/web
           git init
           git config --global user.email jkaae93@gmail.com
           git config --global user.name Serim
           git status
-          git remote add origin https://jkaae93:jl8085++@github.com/jkaae93/jkaae93.github.io.git
+          git remote add origin https://jkaae93.github.io.git
           git checkout -b master
           git add .
           git commit -m "update"
