@@ -6,4 +6,5 @@ build
 android
 ios
 pubspec.lock
+.flutter-*
 
