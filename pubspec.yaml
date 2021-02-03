@@ -66,6 +66,14 @@ flutter:
     - ./assets/icons/logos_kotlin.svg
     - ./assets/icons/logos_twitter.svg
     - ./assets/icons/mdi_marker-check.svg
+    - ./assets/images/smart_home.png
+    - ./assets/images/rfid.png
+    - ./assets/images/iot_clock.png
+    - ./assets/images/firmware.png
+    - ./assets/images/android.png
+    - ./assets/images/this.png
+    - ./assets/images/pet.png
+    - ./assets/images/profile.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -82,13 +90,6 @@ flutter:
     - family: UbuntuMono
       fonts:
         - asset: ./assets/fonts/UbuntuMono-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+    - family: CuteFont
+      fonts:
+        - asset: ./assets/fonts/CuteFont-Regular.ttf
