@@ -165,11 +165,10 @@ class HeadDraw extends CustomPainter {
     Path path = Path();
     Paint paint = Paint();
 
-    path = Path();
-    path.lineTo(0, size.height - size.height / 5);
-    path.lineTo(0, size.height * 0.4);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
+    path.lineTo(0, size.height * 0.4); // left top
+    path.lineTo(0, size.height * 0.6); // left bottom
+    path.lineTo(size.width, size.height * 0.6); // right bottom
+    path.lineTo(size.width, 0); // right top
     path.close();
 
     paint.color = UtilConst().pColor;
@@ -187,13 +186,16 @@ class HeadCoverDraw extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Path path = Path();
     Paint paint = Paint();
-    path.moveTo(size.width, size.height);
-    path.lineTo(0, size.height * 0.4);
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, size.height);
+    // path.lineTo(0, size.height - size.height / 5);
+    // path.moveTo(size.width, size.height * 0.8);
+    path.moveTo(size.width, size.height * 0.6); // right top
+    path.lineTo(0, size.height * 0.4); // left top
+    path.lineTo(0, size.height * 0.6); // left bottom
+    path.lineTo(size.width, size.height * 0.6); // right bottom
     path.close();
 
-    paint.color = UtilConst().bgColor;
+    // paint.color = UtilConst().bgColor;
+    paint.color = Colors.red;
     canvas.drawPath(path, paint);
   }
 
@@ -245,7 +247,7 @@ class Section extends StatelessWidget {
           _title,
           _body,
           SizedBox(
-            height: UtilConst.height * 0.1,
+            height: UtilConst.height * 0.05,
           )
         ],
       ),

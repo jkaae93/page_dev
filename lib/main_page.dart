@@ -34,6 +34,21 @@ class _MainPageState extends State<MainPage> {
               color: UtilConst().bgColor,
             ),
             child: Section(
+                MenuTitle("About me"),
+                Container(
+                  child: Text(
+                    "배재대학교 컴퓨터공학과를 나왔고, 진심으로 도움이 되는 IoT를 하고 싶습니다. \n 제 인생을 말하는 노래가 있다면 그건 분명 랄라스윗의 '벨이 울리면'이겠지요.",
+                    style: TextStyle(
+                        fontSize: UtilConst.height * 0.02,
+                        fontFamily: 'CuteFont'),
+                  ),
+                )),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: UtilConst().bgColor,
+            ),
+            child: Section(
                 MenuTitle("Skills"),
                 Container(
                     child: Container(
@@ -79,19 +94,6 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ],
                 )))),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: UtilConst().bgColor,
-            ),
-            child: Section(
-                MenuTitle("About me"),
-                Container(
-                  child: Text(
-                    "Computer Engneering",
-                    style: TextStyle(fontSize: UtilConst.height * 0.02),
-                  ),
-                )),
           ),
           Container(
             decoration: BoxDecoration(
