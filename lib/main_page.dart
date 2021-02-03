@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -27,22 +25,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     UtilConst().init(context);
-    return Template(
+    return GestureDetector(
+        child: Template(
       Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: UtilConst().bgColor,
-            ),
-            child: Section(
-                MenuTitle("About me"),
-                Container(
-                  child: Text(
-                    "Computer Engneering",
-                    style: TextStyle(fontSize: UtilConst.height * 0.02),
-                  ),
-                )),
-          ),
           Container(
             decoration: BoxDecoration(
               color: UtilConst().bgColor,
@@ -99,6 +85,19 @@ class _MainPageState extends State<MainPage> {
               color: UtilConst().bgColor,
             ),
             child: Section(
+                MenuTitle("About me"),
+                Container(
+                  child: Text(
+                    "Computer Engneering",
+                    style: TextStyle(fontSize: UtilConst.height * 0.02),
+                  ),
+                )),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: UtilConst().bgColor,
+            ),
+            child: Section(
               MenuTitle("Projects"),
               Column(
                 children: [
@@ -108,41 +107,41 @@ class _MainPageState extends State<MainPage> {
                   SizedBox(
                     height: UtilConst.height * 0.05,
                   ),
-                  Container(
-                    width: UtilConst.width * 0.7,
-                    height: UtilConst.height * 0.3,
-                    alignment: Alignment.center,
-                    child: Text("I'm going to update it."),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(0x4f, 0x00, 0x00, 0x00)),
-                  ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     CategoryBlock("In University",
-                  //         Image.asset(UtilConst().images("component1.png")),
-                  //         () {
-                  //       Navigator.pushNamed(context, "/univ");
-                  //     }),
-                  //     SizedBox(
-                  //       width: UtilConst.width * 0.04,
-                  //     ),
-                  //     CategoryBlock("In Company",
-                  //         Image.asset(UtilConst().images("component2.png")),
-                  //         () {
-                  //       Navigator.pushNamed(context, "/comp");
-                  //     }),
-                  //     SizedBox(
-                  //       width: UtilConst.width * 0.04,
-                  //     ),
-                  //     CategoryBlock("In Personally",
-                  //         Image.asset(UtilConst().images("component3.png")),
-                  //         () {
-                  //       Navigator.pushNamed(context, "/pers");
-                  //     }),
-                  //   ],
-                  // )
+                  // Container( // pre release
+                  //   width: UtilConst.width * 0.7,
+                  //   height: UtilConst.height * 0.3,
+                  //   alignment: Alignment.center,
+                  //   child: Text("I'm going to update it."),
+                  //   decoration: BoxDecoration(
+                  //       color: Color.fromARGB(0x4f, 0x00, 0x00, 0x00)),
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // CategoryBlock("In University",
+                      //     Image.asset(UtilConst().images("component1.png")),
+                      //     () {
+                      //   Navigator.pushNamed(context, UtilConst.univRoute);
+                      // }),
+                      // SizedBox(
+                      //   width: UtilConst.width * 0.04,
+                      // ),
+                      CategoryBlock("In Company",
+                          Image.asset(UtilConst().images("component2.png")),
+                          () {
+                        Navigator.pushNamed(context, UtilConst.compRoute);
+                      }),
+                      SizedBox(
+                        width: UtilConst.width * 0.1,
+                      ),
+                      CategoryBlock("In Personally",
+                          Image.asset(UtilConst().images("component3.png")),
+                          () {
+                        Navigator.pushNamed(context, UtilConst.persRoute);
+                      }),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -170,6 +169,6 @@ class _MainPageState extends State<MainPage> {
       UtilConst().images("profile.png"),
       // "안녕하세요. 전세림입니다."
       "",
-    );
+    ));
   }
 }

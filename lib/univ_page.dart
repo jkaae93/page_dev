@@ -24,13 +24,15 @@ class _univPageState extends State<UnivPage> {
 
   @override
   Widget build(BuildContext context) {
-    var image = Image.asset(UtilConst().images("smart_home.png"));
-    // UtilConst().log("build univ_page");
+    UtilConst().init(context);
+    UtilConst().log("build univ_page");
     return Template(
         Column(
           children: [
-            ProjectBanner("Smart Home",
-                Image(image: Svg(UtilConst().icons("logos_kotlin.svg")))),
+            ProjectBanner("Access Control System",
+                Image.asset(UtilConst().images("rfid.png"))),
+            ProjectBanner(
+                "IoT Clock", Image.asset(UtilConst().images("iot_clock.png"))),
           ],
         ),
         "In University",

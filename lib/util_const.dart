@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 
 class UtilConst {
   // Settings
-  static bool enableLog = false;
+  static bool enableLog = true;
 
   // size
   static double height = 0.0;
@@ -28,6 +28,12 @@ class UtilConst {
   final Color bgColor = Color.fromARGB(0xff, 0xe0, 0xe0, 0xe0);
   final Color pColor = Color.fromARGB(0xff, 0x3f, 0x59, 0x8c);
   final Color tpColor = Color.fromARGB(0xff, 0x29, 0x43, 0x77);
+
+  // const
+  static final String mainRoute = "/";
+  static final String univRoute = "/univ";
+  static final String compRoute = "/comp";
+  static final String persRoute = "/pers";
 
   //assets
   String icons(String file) {

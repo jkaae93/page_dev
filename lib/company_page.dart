@@ -24,7 +24,16 @@ class _CompanyPageState extends State<CompanyPage> {
   Widget build(BuildContext context) {
     return Template(
         Column(
-          children: [],
+          children: [
+            ProjectBanner(
+                "Firmware", Image.asset(UtilConst().images("firmware.png"))),
+            ProjectBanner("Android Application",
+                Image.asset(UtilConst().images("android.png"))),
+            SizedBox(
+              width: UtilConst.width * 0.64,
+              height: UtilConst.width * 0.2,
+            ),
+          ],
         ),
         "In Company",
         UtilConst().images("component2.png"),

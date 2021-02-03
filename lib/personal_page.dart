@@ -24,7 +24,16 @@ class _PersonalPageState extends State<PersonalPage> {
   Widget build(BuildContext context) {
     return Template(
         Column(
-          children: [],
+          children: [
+            ProjectBanner(
+                "This web", Image.asset(UtilConst().images("this.png"))),
+            ProjectBanner("A part of Animal Health Care Platform",
+                Image.asset(UtilConst().images("pet.png"))),
+            SizedBox(
+              width: UtilConst.width * 0.64,
+              height: UtilConst.width * 0.2,
+            ),
+          ],
         ),
         "In Personally",
         UtilConst().images("component3.png"),
