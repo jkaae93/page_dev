@@ -166,7 +166,7 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       "Hello, I'm Serim",
-      UtilConst().images("profile.png"),
+      UtilConst().images("profile.jpg"),
       // "안녕하세요. 전세림입니다."
       "",
     ));
