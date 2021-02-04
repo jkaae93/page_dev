@@ -32,7 +32,7 @@ class Template extends StatelessWidget {
                             Container(
                               child: CustomPaint(
                                 size: new Size(
-                                    UtilConst.width, UtilConst.height * 0.6),
+                                    UtilConst.width, UtilConst.height * 0.4),
                                 painter: HeadDraw(),
                               ),
                             ),
@@ -43,7 +43,7 @@ class Template extends StatelessWidget {
                                 Stack(
                                   children: [
                                     Container(
-                                      height: UtilConst.height * 0.5,
+                                      height: UtilConst.height * 0.4,
                                       width: UtilConst.width * 0.25,
                                       alignment: Alignment.topCenter,
                                       child: imageLoader(this._titleImage),
@@ -51,7 +51,7 @@ class Template extends StatelessWidget {
                                   ],
                                 ),
                                 Container(
-                                  height: UtilConst.height * 0.5,
+                                  height: UtilConst.height * 0.4,
                                   child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -68,25 +68,7 @@ class Template extends StatelessWidget {
                                             textAlign: TextAlign.left,
                                           ),
                                         ),
-                                        _subTitle.length > 0
-                                            ? Container(
-                                                child: RotationTransition(
-                                                    turns:
-                                                        AlwaysStoppedAnimation(
-                                                            180 / 360),
-                                                    child: Text(
-                                                      this._subTitle,
-                                                      style: TextStyle(
-                                                          color: UtilConst()
-                                                              .tpColor,
-                                                          fontSize:
-                                                              UtilConst.height *
-                                                                  0.03),
-                                                      textAlign:
-                                                          TextAlign.right,
-                                                    )),
-                                              )
-                                            : Container(),
+                                        subTitleChecker(_subTitle)
                                       ]),
                                 ),
                               ],
@@ -94,7 +76,7 @@ class Template extends StatelessWidget {
                             Container(
                               child: CustomPaint(
                                 size: new Size(
-                                    UtilConst.width, UtilConst.height * 0.6),
+                                    UtilConst.width, UtilConst.height * 0.4),
                                 painter: HeadCoverDraw(),
                               ),
                             ),
@@ -157,6 +139,23 @@ class Template extends StatelessWidget {
       return Image.asset(path);
     }
   }
+
+  Widget subTitleChecker(String subTitle) {
+    if (subTitle.length > 0) {
+      return Container(
+          child: RotationTransition(
+              turns: AlwaysStoppedAnimation(180 / 360),
+              child: Text(
+                this._subTitle,
+                style: TextStyle(
+                    color: UtilConst().tpColor,
+                    fontSize: UtilConst.height * 0.03),
+                textAlign: TextAlign.right,
+              )));
+    } else {
+      return Container();
+    }
+  }
 }
 
 class HeadDraw extends CustomPainter {
@@ -165,9 +164,9 @@ class HeadDraw extends CustomPainter {
     Path path = Path();
     Paint paint = Paint();
 
-    path.lineTo(0, size.height * 0.4); // left top
-    path.lineTo(0, size.height * 0.6); // left bottom
-    path.lineTo(size.width, size.height * 0.6); // right bottom
+    path.lineTo(0, 0); // left top
+    path.lineTo(0, size.height); // left bottom
+    path.lineTo(size.width, size.height); // right bottom
     path.lineTo(size.width, 0); // right top
     path.close();
 
@@ -186,16 +185,13 @@ class HeadCoverDraw extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Path path = Path();
     Paint paint = Paint();
-    // path.lineTo(0, size.height - size.height / 5);
-    // path.moveTo(size.width, size.height * 0.8);
-    path.moveTo(size.width, size.height * 0.6); // right top
-    path.lineTo(0, size.height * 0.4); // left top
-    path.lineTo(0, size.height * 0.6); // left bottom
-    path.lineTo(size.width, size.height * 0.6); // right bottom
+    path.moveTo(size.width, size.height); // right top
+    path.lineTo(0, size.height * 0.7); // left top
+    path.lineTo(0, size.height); // left bottom
+    path.lineTo(size.width, size.height); // right bottom
     path.close();
 
-    // paint.color = UtilConst().bgColor;
-    paint.color = Colors.red;
+    paint.color = UtilConst().bgColor;
     canvas.drawPath(path, paint);
   }
 

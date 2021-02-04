@@ -9,7 +9,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,11 +21,11 @@ class MyApp extends StatelessWidget {
               return MainPage();
             });
             break;
-          // case '/univ': // TODO: needs checking
-          // MaterialPageRoute(builder: (context) {
-          // return UnivPage();
-          // });
-          // break;
+          case '/univ':
+            MaterialPageRoute(builder: (context) {
+              return UnivPage();
+            });
+            break;
           case '/comp':
             MaterialPageRoute(builder: (context) {
               return CompanyPage();
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget {
         }
       },
       routes: {
-        // '/': (context) => UnivPage(),
         '/': (context) => MainPage(),
         '/univ': (context) => UnivPage(),
         '/comp': (context) => CompanyPage(),

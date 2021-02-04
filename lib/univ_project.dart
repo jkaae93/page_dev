@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 class ClockProject extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
+  State<StatefulWidget> createState() => _ClockProject();
 }
 
 class _ClockProject extends State<ClockProject> {

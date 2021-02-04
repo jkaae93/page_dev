@@ -109,33 +109,25 @@ class _MainPageState extends State<MainPage> {
                   SizedBox(
                     height: UtilConst.height * 0.05,
                   ),
-                  // Container( // pre release
-                  //   width: UtilConst.width * 0.7,
-                  //   height: UtilConst.height * 0.3,
-                  //   alignment: Alignment.center,
-                  //   child: Text("I'm going to update it."),
-                  //   decoration: BoxDecoration(
-                  //       color: Color.fromARGB(0x4f, 0x00, 0x00, 0x00)),
-                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // CategoryBlock("In University",
-                      //     Image.asset(UtilConst().images("component1.png")),
-                      //     () {
-                      //   Navigator.pushNamed(context, UtilConst.univRoute);
-                      // }),
-                      // SizedBox(
-                      //   width: UtilConst.width * 0.04,
-                      // ),
+                      CategoryBlock("In University",
+                          Image.asset(UtilConst().images("component1.png")),
+                          () {
+                        Navigator.pushNamed(context, UtilConst.univRoute);
+                      }),
+                      SizedBox(
+                        width: UtilConst.width * 0.04,
+                      ),
                       CategoryBlock("In Company",
                           Image.asset(UtilConst().images("component2.png")),
                           () {
                         Navigator.pushNamed(context, UtilConst.compRoute);
                       }),
                       SizedBox(
-                        width: UtilConst.width * 0.1,
+                        width: UtilConst.width * 0.04,
                       ),
                       CategoryBlock("In Personally",
                           Image.asset(UtilConst().images("component3.png")),
