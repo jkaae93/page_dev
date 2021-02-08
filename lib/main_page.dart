@@ -1,9 +1,10 @@
 import 'package:docs/univ_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'template.dart';
-import 'util_const.dart';
+import 'util.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    UtilConst().init(context);
+    Util().init(context);
     return InteractiveViewer(
         panEnabled: true,
         boundaryMargin: EdgeInsets.all(100),
@@ -36,110 +37,102 @@ class _MainPageState extends State<MainPage> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: UtilConst().bgColor,
+                  color: Util.bgColor,
                 ),
                 child: Section(
-                    MenuTitle("About me"),
+                    MenuTitle('about'.tr()),
                     Container(
                       child: Text(
-                        "배재대학교 컴퓨터공학과를 나왔고, 진심으로 도움이 되는 IoT를 하고 싶습니다. \n 제 인생을 말하는 노래가 있다면 그건 분명 랄라스윗의 '벨이 울리면'이겠지요.",
+                        'about_msg'.tr(),
                         style: TextStyle(
-                            fontSize: UtilConst.height * 0.02,
+                            fontSize: Util.height * 0.02,
                             fontFamily: 'CuteFont'),
                       ),
                     )),
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: UtilConst().bgColor,
+                  color: Util.bgColor,
                 ),
                 child: Section(
-                    MenuTitle("Skills"),
+                    MenuTitle('skills'.tr()),
                     Container(
                         child: Container(
                             child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          width: (UtilConst.width * 0.1),
+                          width: (Util.width * 0.1),
                         ),
                         LangIcon(
-                            "Flutter",
+                            'flutter'.tr(),
+                            SvgPicture.asset(Util.icons("logos_flutter.svg")),
+                            'mid'.tr()),
+                        LangIcon(
+                            'js'.tr(),
+                            SvgPicture.asset(Util.icons("logos_js.svg")),
+                            'low'.tr()),
+                        LangIcon(
+                            'kotlin'.tr(),
+                            SvgPicture.asset(Util.icons("logos_kotlin.svg")),
+                            'low'.tr()),
+                        LangIcon(
+                            'cpp'.tr(),
                             SvgPicture.asset(
-                                UtilConst().icons("logos_flutter.svg")),
-                            "Mid"),
+                                Util.icons("logos_c-plusplus.svg")),
+                            'mid'.tr()),
                         LangIcon(
-                            "JavaScript",
-                            SvgPicture.asset(UtilConst().icons("logos_js.svg")),
-                            "Lower"),
+                            'c'.tr(),
+                            SvgPicture.asset(Util.icons("logos_c.svg")),
+                            'high'.tr()),
                         LangIcon(
-                            "Kotlin",
-                            SvgPicture.asset(
-                                UtilConst().icons("logos_kotlin.svg")),
-                            "Lower"),
+                            'java'.tr(),
+                            SvgPicture.asset(Util.icons("logos_java.svg")),
+                            'high'.tr()),
                         LangIcon(
-                            "C++",
-                            SvgPicture.asset(
-                                UtilConst().icons("logos_c-plusplus.svg")),
-                            "Mid"),
-                        LangIcon(
-                            "C",
-                            SvgPicture.asset(UtilConst().icons("logos_c.svg")),
-                            "High"),
-                        LangIcon(
-                            "Java",
-                            SvgPicture.asset(
-                                UtilConst().icons("logos_java.svg")),
-                            "High"),
-                        LangIcon(
-                            "Android",
-                            SvgPicture.asset(
-                                UtilConst().icons("logos_android.svg")),
-                            "Mid"),
+                            'and'.tr(),
+                            SvgPicture.asset(Util.icons("logos_android.svg")),
+                            'mid'.tr()),
                         Container(
-                          width: (UtilConst.width * 0.1),
+                          width: (Util.width * 0.1),
                         ),
                       ],
                     )))),
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: UtilConst().bgColor,
+                  color: Util.bgColor,
                 ),
                 child: Section(
-                  MenuTitle("Projects"),
+                  MenuTitle('project'.tr()),
                   Column(
                     children: [
-                      Text(
-                          "Every project is precious to me. Even if it was a really small project.",
-                          style: TextStyle(fontSize: UtilConst.height * 0.02)),
+                      Text('project.sub'.tr(),
+                          style: TextStyle(fontSize: Util.height * 0.02)),
                       SizedBox(
-                        height: UtilConst.height * 0.05,
+                        height: Util.height * 0.05,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CategoryBlock("In University",
-                              Image.asset(UtilConst().images("component1.png")),
-                              () {
-                            Navigator.pushNamed(context, UtilConst.univRoute);
+                          CategoryBlock('univ.in_univ'.tr(),
+                              Image.asset(Util.images("component1.png")), () {
+                            Navigator.pushNamed(context, Util.univRoute);
                           }),
                           SizedBox(
-                            width: UtilConst.width * 0.04,
+                            width: Util.width * 0.04,
                           ),
-                          CategoryBlock("In Company",
-                              Image.asset(UtilConst().images("component2.png")),
-                              () {
-                            Navigator.pushNamed(context, UtilConst.compRoute);
+                          CategoryBlock('comp.in_comp'.tr(),
+                              Image.asset(Util.images("component2.png")), () {
+                            Navigator.pushNamed(context, Util.compRoute);
                           }),
                           SizedBox(
-                            width: UtilConst.width * 0.04,
+                            width: Util.width * 0.04,
                           ),
-                          CategoryBlock("In Personally",
-                              Image.asset(UtilConst().images("component3.png")),
-                              () {
-                            Navigator.pushNamed(context, UtilConst.persRoute);
+                          CategoryBlock('pers.in_pers'.tr(),
+                              Image.asset(Util.images("component3.png")), () {
+                            Navigator.pushNamed(context, Util.persRoute);
                           }),
                         ],
                       )
@@ -151,14 +144,14 @@ class _MainPageState extends State<MainPage> {
                 child: Column(
                   children: [
                     Text(
-                      "More than",
-                      style: TextStyle(fontSize: UtilConst.height * 0.017),
+                      'more'.tr(),
+                      style: TextStyle(fontSize: Util.height * 0.017),
                     ),
                     SizedBox(
-                      height: UtilConst.height * 0.025,
+                      height: Util.height * 0.025,
                     ),
                     Container(
-                      height: UtilConst.height * 0.03,
+                      height: Util.height * 0.03,
                       child: SocialButton(),
                     ),
                   ],
@@ -166,8 +159,8 @@ class _MainPageState extends State<MainPage> {
               ),
             ],
           ),
-          "Hello, I'm Serim",
-          UtilConst().images("profile.jpg"),
+          'hello'.tr(),
+          Util.images("profile.jpg"),
           // "안녕하세요. 전세림입니다."
           "",
         ));

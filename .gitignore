@@ -7,4 +7,5 @@ android
 ios
 pubspec.lock
 .flutter-*
+.packages
 

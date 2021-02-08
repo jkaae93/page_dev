@@ -2,8 +2,9 @@ import 'dart:html';
 
 import 'package:docs/template.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-import 'util_const.dart';
+import 'util.dart';
 
 class UnivPage extends StatefulWidget {
   @override
@@ -23,19 +24,21 @@ class _univPageState extends State<UnivPage> {
 
   @override
   Widget build(BuildContext context) {
-    UtilConst().init(context);
-    UtilConst().log("build univ_page");
+    Util().init(context);
+    Util.log("build univ_page");
     return Template(
         Column(
           children: [
-            ProjectBanner("Access Control System",
-                Image.asset(UtilConst().images("rfid.png"))),
+            ProjectBanner('univ.acs'.tr(), Image.asset(Util.images("rfid.png")),
+                'link.univ.acs'.tr()),
             ProjectBanner(
-                "IoT Clock", Image.asset(UtilConst().images("iot_clock.png"))),
+                'univ.iot'.tr(),
+                Image.asset(Util.images("iot_clock.png")),
+                'link.univ.iot'.tr()),
           ],
         ),
-        "In University",
-        UtilConst().images("component1.png"),
+        'univ.in_univ'.tr(),
+        Util.images("component1.png"),
         "");
   }
 }
