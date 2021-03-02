@@ -1,8 +1,9 @@
 import 'dart:html';
 
 import 'package:docs/template.dart';
-import 'package:docs/util_const.dart';
+import 'package:docs/util.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class PersonalPage extends StatefulWidget {
   @override
@@ -26,17 +27,15 @@ class _PersonalPageState extends State<PersonalPage> {
         Column(
           children: [
             ProjectBanner(
-                "This web", Image.asset(UtilConst().images("this.png"))),
-            ProjectBanner("A part of Animal Health Care Platform",
-                Image.asset(UtilConst().images("pet.png"))),
+                'pers.this'.tr(), Image.asset(Util.images("this.png")), ''),
             SizedBox(
-              width: UtilConst.width * 0.64,
-              height: UtilConst.width * 0.2,
+              width: Util.width * 0.64,
+              height: Util.width * 0.2,
             ),
           ],
         ),
-        "In Personally",
-        UtilConst().images("component3.png"),
+        'pers.in_pers'.tr(),
+        Util.images("component3.png"),
         "");
   }
 }
