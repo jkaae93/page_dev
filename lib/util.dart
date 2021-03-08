@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 
 class Util {
   // Settings
-  static bool enableLog = true;
+  static bool enableLog = false;
 
   // size
   static double height = 0.0;
