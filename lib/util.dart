@@ -39,21 +39,21 @@ class Util {
   static String icons(String file) {
     String releasePath = "./assets";
     String path = "/icons/" + file;
-    // if (!enableLog) path = releasePath + path;
+    if (!enableLog) path = releasePath + path;
     return path;
   }
 
   static String images(String file) {
     String releasePath = "./assets";
     String path = "/images/" + file;
-    // if (!enableLog) path = releasePath + path;
+    if (!enableLog) path = releasePath + path;
     return path;
   }
 
   static String font(String file) {
     String releasePath = "./assets";
     String path = "/fonts/" + file;
-    // if (!enableLog) path = releasePath + path;
+    if (!enableLog) path = releasePath + path;
     return path;
   }
 
